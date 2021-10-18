@@ -85,7 +85,7 @@ fi
 	echo "|||||||||||||||| By SP VPN-TH |||||||||||||||||" 
 	echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "|${z1} 1${NC}|${z2} เพิ่มชื่อผู้ใช้งาน OpenVPN (Config)${NC} "
-	echo -e "|${z1} 2${NC}|${z2} เพิ่มชื่อผู้ใช้งาน {User/Pass}  SSH (HTTP) VPN (OPENVPN)${NC} "
+	echo -e "|${z1} 2${NC}|${z2} เพิ่มชื่อผู้ใช้งาน {User/Pass}  SSH/VPN${NC} "
 if [[ "$VERSION_ID" = 'VERSION_ID="7"' || "$VERSION_ID" = 'VERSION_ID="8"' || "$VERSION_ID" = 'VERSION_ID="14.04"' ]]; then
 		if [[ ! -e /etc/squid3/squid.conf ]]; then
 	echo -e "|${z1} 3${NC}|${z2} ติดตั้ง SQUID PROXY${NC} ${RED}Install NO${NC} "
@@ -151,7 +151,7 @@ do
 		fi
 done < /etc/passwd
 bash Auto-Delete-Client
-echo -e "แบนด์วิดท์ที่ใช้ไปทั้งหมด ${GRAY}$TOTALBW${NC}${GRAY}B${NC}  |  กำลังเชื่อมต่อ ${GRAY}$ON${NC} บัญชี"
+echo -e "แบนด์วิดท์ที่ใช้ไปทั้งหมด ${GRAY} $TOTALBW ${NC}${GRAY}B${NC}  |  กำลังเชื่อมต่อ ${GRAY}$ON${NC} บัญชี"
 echo -e "${BLUE}>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<< ${NC}"
         read -p "เลือกหัวข้อเมนูที่ต้องการใช้งาน : " MENU
 echo ""
