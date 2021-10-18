@@ -57,7 +57,6 @@ fi
 echo " "
 echo -e "\033[0;34m━━━━━━━━━━━━━━[OpenSSH User Login]━━━━━━━━━━━━━━\033[0m";
 echo "ID  |  Username  |  IP Address";
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m";
 cat $LOG | grep -i sshd | grep -i "Accepted password for" > /tmp/login-db.txt
 data=( `ps aux | grep "\[priv\]" | sort -k 72 | awk '{print $2}'`);
 
