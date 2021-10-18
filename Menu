@@ -55,7 +55,7 @@ if [ -e "/var/log/secure" ]; then
 fi
                
         echo " "
-        echo -e "\033[0;34m━━━━━━━━━━━━━━[OpenSSH User Login]━━━━━━━━━━━━━━\033[0m"
+        echo -e "\033[0;34m━━━━━━━━━━━━━━[OpenSSH User Login]━━━━━━━━━━━━━━\033[0m";
         echo "ID  |  Username  |  IP Address";
         
 cat $LOG | grep -i sshd | grep -i "Accepted password for" > /tmp/login-db.txt
