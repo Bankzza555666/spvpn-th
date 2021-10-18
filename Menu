@@ -54,10 +54,10 @@ if [ -e "/var/log/secure" ]; then
         LOG="/var/log/secure";
 fi
                
-echo " "
-echo "-----=[ OpenSSH User Login ]=-----";
-echo "ID  |  Username  |  IP Address";
-echo "-------------------------------------";
+        echo " "
+        echo "      -----=[ OpenSSH User Login ]=-----";
+        echo "      ID  |  Username  |  IP Address";
+        echo "     -------------------------------------";
 cat $LOG | grep -i sshd | grep -i "Accepted password for" > /tmp/login-db.txt
 data=( `ps aux | grep "\[priv\]" | sort -k 72 | awk '{print $2}'`);
 
@@ -68,7 +68,7 @@ do
         USER=`cat /tmp/login-db-pid.txt | awk '{print $9}'`;
         IP=`cat /tmp/login-db-pid.txt | awk '{print $11}'`;
         if [ $NUM -eq 1 ]; then
-                echo "$PID - $USER - $IP";
+                echo "           $PID - $USER - $IP";
         fi
 done
 if [ -f "/etc/openvpn/openvpn-status.log" ]; then
@@ -76,15 +76,15 @@ if [ -f "/etc/openvpn/openvpn-status.log" ]; then
         a=$((3+((line-8)/2)))
         b=$(((line-8)/2))
         echo " "
-        echo "-----=[ OpenVPN User Login ]=-----";
-        echo "Username  |  IP Address  |  Connected Since";
-        echo "-------------------------------------";
+        echo "       -----=[ OpenVPN User Login ]=-----";
+        echo "   Username  |  IP Address  |  Connected Since";
+        echo "-----------------------------------------------";
         cat /etc/openvpn/openvpn-status.log | head -n $a | tail -n $b | cut -d "," -f 1,2,5 | sed -e 's/,/   /g' > /tmp/vpn-login-db.txt
         cat /tmp/vpn-login-db.txt
 fi
-	echo "-------------------------------------------------------" 
-	echo "|||||||||||||||| By SP VPN-TH |||||||||||||||||" 
-	echo "-------------------------------------------------------"
+	echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+	echo "   |||||||||||||||| By SP VPN-TH |||||||||||||||||" 
+	echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "|${z1} 1${NC}|${z2} เพิ่มชื่อผู้ใช้งาน OpenVPN (Config)${NC} "
 	echo -e "|${z1} 2${NC}|${z2} เพิ่มชื่อผู้ใช้งาน {User/Pass}  SSH (HTTP) VPN (OPENVPN)${NC} "
 if [[ "$VERSION_ID" = 'VERSION_ID="7"' || "$VERSION_ID" = 'VERSION_ID="8"' || "$VERSION_ID" = 'VERSION_ID="14.04"' ]]; then
