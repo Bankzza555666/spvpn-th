@@ -55,9 +55,9 @@ if [ -e "/var/log/secure" ]; then
 fi
                
         echo " "
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━[OpenVPN User Login]━━━━━━━━━━━━━━━━━\033[0m";
+        echo -e "\033[0;34m━━━━━━━━━━━━━━━[OpenVPN User Login]━━━━━━━━━━━━━━━━\033[0m";
         echo "ID  |  Username  |  IP Address";
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m";
+        
 cat $LOG | grep -i sshd | grep -i "Accepted password for" > /tmp/login-db.txt
 data=( `ps aux | grep "\[priv\]" | sort -k 72 | awk '{print $2}'`);
 
@@ -76,9 +76,9 @@ if [ -f "/etc/openvpn/openvpn-status.log" ]; then
         a=$((3+((line-8)/2)))
         b=$(((line-8)/2))
         echo " "
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━[OpenVPN User Login]━━━━━━━━━━━━━━━━━\033[0m";
+        echo -e "\033[0;34m━━━━━━━━━━━━━━━[OpenVPN User Login]━━━━━━━━━━━━━━━━\033[0m";
         echo "Username  |  IP Address  |  Connected Since";
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m";
+        
         cat /etc/openvpn/openvpn-status.log | head -n $a | tail -n $b | cut -d "," -f 1,2,5 | sed -e 's/,/   /g' > /tmp/vpn-login-db.txt
         cat /tmp/vpn-login-db.txt
 fi
