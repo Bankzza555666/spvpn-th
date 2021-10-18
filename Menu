@@ -39,14 +39,14 @@ echo -e "${RED} #         SCRIPT BY : คนธรรมดา ที่คว�
 echo -e "${RED} =============== OS-32 & 64-bit =================    "
 echo -e "${GREEN} ไอพีเซิฟ: $IP "
 echo -e "${NC} "
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 chek=$(cat /etc/issue.net)
 tram=$( free -m | awk 'NR==2 {print $2}' )
 up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }')
 echo -e "\e[032;1mSYSTEM OS:\e[0m  $chek" 
 echo -e "\e[032;1mTotal Amount Of RAM:\e[0m $tram MB"
 echo -e "\e[032;1mSystem Uptime:\e[0m $up"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" 
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" 
 if [ -e "/var/log/auth.log" ]; then
         LOG="/var/log/auth.log";
 fi
@@ -55,7 +55,7 @@ if [ -e "/var/log/secure" ]; then
 fi
                
         echo " "
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━[OpenVPN User Login]━━━━━━━━━━━━━━━━\033[0m";
+        echo -e "\033[0;34m━━━━━━━━━━━━━[OpenVPN User Login]━━━━━━━━━━━━━━\033[0m";
         echo "ID  |  Username  |  IP Address";
         
 cat $LOG | grep -i sshd | grep -i "Accepted password for" > /tmp/login-db.txt
@@ -76,15 +76,15 @@ if [ -f "/etc/openvpn/openvpn-status.log" ]; then
         a=$((3+((line-8)/2)))
         b=$(((line-8)/2))
         echo " "
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━[OpenVPN User Login]━━━━━━━━━━━━━━━━\033[0m";
+        echo -e "\033[0;34m━━━━━━━━━━━━━[OpenVPN User Login]━━━━━━━━━━━━━━\033[0m";
         echo "Username  |  IP Address  |  Connected Since";
         
         cat /etc/openvpn/openvpn-status.log | head -n $a | tail -n $b | cut -d "," -f 1,2,5 | sed -e 's/,/   /g' > /tmp/vpn-login-db.txt
         cat /tmp/vpn-login-db.txt
 fi
-	echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+	echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 	echo " |||||||||||||||| By SP VPN-TH |||||||||||||||||" 
-	echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+	echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "|${z1} 1${NC}|${z2} เพิ่มชื่อผู้ใช้งาน OpenVPN (Config)${NC} "
 	echo -e "|${z1} 2${NC}|${z2} เพิ่มชื่อผู้ใช้งาน {User/Pass}  SSH (HTTP) VPN (OPENVPN)${NC} "
 if [[ "$VERSION_ID" = 'VERSION_ID="7"' || "$VERSION_ID" = 'VERSION_ID="8"' || "$VERSION_ID" = 'VERSION_ID="14.04"' ]]; then
